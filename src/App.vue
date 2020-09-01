@@ -1,18 +1,26 @@
 <template>
     <div class="min-h-screen bg-grey-darker p-8">
         <div class="max-w-sm mx-auto">
-            <user-settings-form></user-settings-form>
+            <div class="card">
+                <label class="block">
+                    <span class="form-label mb-2">Select a date</span>
+                    <date-picker class="form-input" v-model="date" format="D MMM YYYY" :options="{ firstDay: 1 }"></date-picker>
+                </label>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
-  import UserSettingsForm from "@/components/UserSettingsForm"
+  import DatePicker from "@/components/DatePicker"
 
   export default {
     components: {
-      UserSettingsForm
-    }
+      DatePicker
+    },
+    data: () => ({
+      date: "2018-04-12"
+    })
   }
 </script>
 
