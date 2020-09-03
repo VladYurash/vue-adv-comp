@@ -1,17 +1,17 @@
 <template>
     <div class="min-h-screen bg-grey-darker p-8">
         <div class="max-w-sm mx-auto">
-            <user-settings-form></user-settings-form>
+            <hello-world></hello-world>
         </div>
     </div>
 </template>
 
 <script>
-  import UserSettingsForm from "@/components/UserSettingsForm"
+  import HelloWorld from "@/components/HelloWorld"
 
   export default {
     components: {
-      UserSettingsForm
+      HelloWorld
     }
   }
 </script>
