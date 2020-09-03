@@ -1,17 +1,26 @@
 <template>
     <div class="min-h-screen bg-grey-darker p-8">
         <div class="max-w-sm mx-auto">
-            <user-settings-form></user-settings-form>
+            <contact-list :pseudo-slot="({ contact }) => contact.name.first">
+                <template v-slot="{ contact }">
+                    <a :href="`/contacts/${contact.id}`">
+                        {{ contact.name.first }}
+                    </a>
+                </template>
+            </contact-list>
         </div>
     </div>
 </template>
 
 <script>
-  import UserSettingsForm from "@/components/UserSettingsForm"
+  import ContactList from '@/components/ContactList'
 
   export default {
     components: {
-      UserSettingsForm
+      ContactList,
+    },
+    data() {
+      return {}
     }
   }
 </script>
