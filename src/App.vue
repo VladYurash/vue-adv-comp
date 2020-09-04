@@ -1,17 +1,39 @@
 <template>
-    <div class="min-h-screen bg-grey-darker p-8">
-        <div class="max-w-sm mx-auto">
-            <user-settings-form></user-settings-form>
+    <div id="app" class="min-h-screen bg-grey-darker p-8">
+        <div class="max-w-sm mx-auto card mt-8">
+            <label class="form-label mb-2">Renderless Tag Input</label>
+            <renderless-tag-input v-model="tags">
+                <div class="tag-input" slot-scope="{tags, removeTag}">
+                    <span v-for="tag in tags" :key="tag" class="tag-input-tag">
+                        <span>{{ tag }}</span>
+                        <button type="button" class="tag-input-remove" @click="removeTag(tag)"
+                        >&times;</button>
+                    </span>
+                    <input class="tag-input-text" placeholder="Add tag..."
+                    >
+                </div>
+            </renderless-tag-input>
+        </div>
+        <div class="max-w-sm mx-auto card mt-8">
+            <label class="form-label mb-2">Original Tag Input</label>
+            <tag-input v-model="tags"></tag-input>
         </div>
     </div>
 </template>
 
 <script>
-  import UserSettingsForm from "@/components/UserSettingsForm"
+  import TagInput from '@/components/TagInput'
+  import RenderlessTagInput from '@/components/RenderlessTagInput'
 
   export default {
     components: {
-      UserSettingsForm
+      TagInput,
+      RenderlessTagInput,
+    },
+    data() {
+      return {
+        tags: ['awesome', 'excellent', 'amazing'],
+      }
     }
   }
 </script>
