@@ -1,34 +1,35 @@
 <template>
     <div id="app" class="min-h-screen bg-grey-darker p-8">
         <div class="max-w-sm mx-auto card mt-8">
-            <label class="form-label mb-2">Renderless Tag Input</label>
-            <renderless-tag-input v-model="tags">
-                <div class="tag-input" slot-scope="{tags, removeTag}">
-                    <span v-for="tag in tags" :key="tag" class="tag-input-tag">
-                        <span>{{ tag }}</span>
-                        <button type="button" class="tag-input-remove" @click="removeTag(tag)"
-                        >&times;</button>
-                    </span>
-                    <input class="tag-input-text" placeholder="Add tag..."
-                    >
-                </div>
-            </renderless-tag-input>
+            <label class="form-label mb-2">Stacked Tag Input</label>
+            <stacked-tag-input v-model="tags"></stacked-tag-input>
         </div>
+
+        <div class="max-w-sm mx-auto card mt-8">
+            <label class="form-label mb-2">Inline Tag Input</label>
+            <inline-tag-input v-model="tags"></inline-tag-input>
+        </div>
+
         <div class="max-w-sm mx-auto card mt-8">
             <label class="form-label mb-2">Original Tag Input</label>
             <tag-input v-model="tags"></tag-input>
         </div>
+
     </div>
 </template>
 
 <script>
-  import TagInput from '@/components/TagInput'
-  import RenderlessTagInput from '@/components/RenderlessTagInput'
+  import TagInput from './components/TagInput.vue'
+  import RenderlessTagInput from './components/RenderlessTagInput.vue'
+  import InlineTagInput from './components/InlineTagInput.vue'
+  import StackedTagInput from './components/StackedTagInput.vue'
 
   export default {
     components: {
       TagInput,
       RenderlessTagInput,
+      InlineTagInput,
+      StackedTagInput,
     },
     data() {
       return {
@@ -38,4 +39,4 @@
   }
 </script>
 
-<style src="@/assets/css/app.css"/>
+<style src="./assets/css/app.css"/>
