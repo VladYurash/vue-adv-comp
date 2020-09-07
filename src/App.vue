@@ -1,19 +1,22 @@
 <template>
-    <div class="min-h-screen bg-grey-darker p-8">
-        <div class="max-w-sm mx-auto">
-            <user-settings-form></user-settings-form>
+    <div class="min-h-screen bg-grey-darker p-4">
+        <div style="width: 420px" class="mx-auto border-l border-r border-dashed border-grey-dark py-4 mb-4">
+            <profile-card></profile-card>
+        </div>
+        <div style="width: 300px" class="border-l border-r border-dashed border-grey-dark py-4 mx-auto">
+            <profile-card></profile-card>
         </div>
     </div>
 </template>
 
 <script>
-  import UserSettingsForm from "@/components/UserSettingsForm"
+  import ProfileCard from '@/components/ProfileCard'
 
   export default {
     components: {
-      UserSettingsForm
-    }
+      ProfileCard,
+    },
   }
 </script>
 
-<style src="@/assets/css/app.css"/>
+<style src="./assets/css/app.css"/>
